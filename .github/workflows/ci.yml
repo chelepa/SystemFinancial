@@ -40,7 +40,6 @@ jobs:
               MYSQL_USERNAME=${{ secrets.MYSQL_USERNAME }}
               MYSQL_HOST=${{ secrets.MYSQL_HOST }}
               MYSQL_PORT=${{ secrets.MYSQL_PORT }}
-              FLYWAY_ENABLED=${{ secrets.FLYWAY_ENABLED }}
               MYSQL_DB=${{ secrets.MYSQL_DB }}
               TARGET=${{ secrets.TARGET }}
             " > .env
