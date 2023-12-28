@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DebitRequestDTO {
-
     private String name_debt;
     private BigDecimal value_debt;
     private Boolean flag_payment;
