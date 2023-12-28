@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  backend:
+    container_name: SystemFinancial
+    build:
+      context: .
+    environment:
+      MYSQL_DB: ${MYSQL_DB}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_PORT: ${MYSQL_PORT}
+      MYSQL_USERNAME: ${MYSQL_USERNAME}
+    ports:
+      - "9002:8080"
+    networks:
+      - app-tier
+networks:
+  app-tier:
+    driver: bridge
