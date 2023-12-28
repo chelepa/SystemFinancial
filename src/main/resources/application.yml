@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: SystemFinancial
+  flyway:
+    enabled: true
+    password: ${MYSQL_PASSWORD}
+    user: ${MYSQL_USERNAME}
+    url: jdbc:mariadb://${MYSQL_HOST}:${MYSQL_PORT}/
+    schemas: ${MYSQL_DB}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+
+  datasource:
+    url: jdbc:mariadb://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}?reconnect=TRUE?createDatabaseIfNotExist=TRUE
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
