@@ -13,5 +13,5 @@ public class DebitResponseDTO {
     private String name_debt;
     private BigDecimal value_debt;
     private Boolean flag_payment;
-    
+
 }
