@@ -17,5 +17,4 @@ public class SystemFinancialApplication {
 		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper;
 	}
-
 }
