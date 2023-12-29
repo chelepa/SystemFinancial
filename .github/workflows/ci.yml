@@ -57,7 +57,7 @@ jobs:
           port: ${{ secrets.REMOTE_PORT }}
           script: |
             cd ${{secrets.TARGET}}
-            docker stop BarberShop
-            docker rm BarberShop
-            docker rmi barbershop-backend
+            docker stop systemfinancial_app
+            docker rm systemfinancial
+            docker image rm systemfinancial_app
             docker-compose up -d
