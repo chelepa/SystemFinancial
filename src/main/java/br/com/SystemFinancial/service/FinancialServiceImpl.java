@@ -55,4 +55,9 @@ public class FinancialServiceImpl implements FinancialService {
     public MonthResponseDTO getMonthById(Long id) {
         return monthService.getMonthById(id);
     }
+
+    @Override
+    public List<MonthResponseDTO> getAllMonth() {
+        return monthService.getAllMonth();
+    }
 }

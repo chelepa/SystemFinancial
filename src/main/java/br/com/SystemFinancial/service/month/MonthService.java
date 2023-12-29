@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Service
@@ -37,6 +39,14 @@ public class MonthService extends BaseService {
         var value_not_pag = response.getDebit().stream().filter(item -> item.getFlag_payment().equals(Boolean.FALSE)).map(DebitResponseDTO::getValue_debt).reduce(BigDecimal.ZERO, BigDecimal::add);
             response.setValue_not_pag(value_not_pag);
         log.info("MonthService.getMonthById - End - Response: [{}] ", response);
+        return response;
+    }
+
+    public List<MonthResponseDTO> getAllMonth() {
+        List<MonthResponseDTO> response = new ArrayList<>();
+        log.info("MonthService.getAllMonth - Start - ");
+        var entity = this.getMonthFindAll();
+        entity.forEach(item -> response.add(modelMapper.map(item, MonthResponseDTO.class)));
         return response;
     }
 }

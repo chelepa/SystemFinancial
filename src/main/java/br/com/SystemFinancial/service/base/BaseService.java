@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 public class BaseService {
@@ -40,5 +42,9 @@ public class BaseService {
 
     protected MonthEntity getMonth(Long id) {
         return monthRepository.findById(id).orElseThrow(() -> new NotFoundException(String.format("Month Not Found - Id: [%s] ", id)));
+    }
+
+    protected List<MonthEntity> getMonthFindAll() {
+        return monthRepository.findAll();
     }
 }

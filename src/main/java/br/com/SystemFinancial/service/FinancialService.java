@@ -14,6 +14,6 @@ public interface FinancialService {
     DebitResponseDTO updateDebtById(Long id, DebitRequestDTO debt);
     DebitResponseDTO getDebt(Long id);
     MonthResponseDTO createdMonth(MonthRequestDTO request);
-
     MonthResponseDTO getMonthById(Long id);
+    List<MonthResponseDTO> getAllMonth();
 }
