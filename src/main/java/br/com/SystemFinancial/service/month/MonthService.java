@@ -46,7 +46,14 @@ public class MonthService extends BaseService {
         List<MonthResponseDTO> response = new ArrayList<>();
         log.info("MonthService.getAllMonth - Start - ");
         var entity = this.getMonthFindAll();
-        entity.forEach(item -> response.add(modelMapper.map(item, MonthResponseDTO.class)));
+        entity.forEach(item -> {
+            var dto = modelMapper.map(item, MonthResponseDTO.class);
+            var value_pag = dto.getDebit().stream().filter(item1 -> item1.getFlag_payment().equals(Boolean.TRUE)).map(DebitResponseDTO::getValue_debt).reduce(BigDecimal.ZERO, BigDecimal::add);
+            var value_not_pag = dto.getDebit().stream().filter(item1 -> item1.getFlag_payment().equals(Boolean.FALSE)).map(DebitResponseDTO::getValue_debt).reduce(BigDecimal.ZERO, BigDecimal::add);
+            dto.setValue_pag(value_pag);
+            dto.setValue_not_pag(value_not_pag);
+            response.add(dto);
+        });
         return response;
     }
 }
